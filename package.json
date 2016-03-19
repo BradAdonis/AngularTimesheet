@@ -1,0 +1,18 @@
+{
+  "name": "barebones",
+  "version": "0.0.1",
+  "description": "Barebones project",
+  "repository": {
+    "type": "git"
+  },
+  "author": "Bradley Cunningham",
+  "devDependencies": {
+    "gulp": "^3.8.8",
+    "gulp-jsbeautifier": "0.0.4",
+    "gulp-jshint": "^1.9.0",
+    "gulp-util": "^2.2.20",
+    "gulp-w3cjs": "^0.2.1",
+    "gulp-webserver": "^0.8.8",
+    "jshint-stylish": "^1.0.0"
+  }
+}

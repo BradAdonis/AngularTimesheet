@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="panel panel-primary">
+    <div class="panel-heading panelHeader">
+      <strong>Timesheet Submit Confirmation</strong>
+    </div>
+    <div class="panel-body">
+      <div>
+        <strong>Shahid Ali</strong>
+        <br/>
+        <small>Time Report ID: 978562</small>
+      </div>
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr role="row"><th>Project</th><th>Hours</th></tr>
+      </thead>
+      <tbody>
+        <tr role="row"><td>Support - MS Forms</td><td>22.5</td></tr>
+        <tr role="row"><td>FOFA IT</td><td>7.5</td></tr>
+        <tr role="row"><td>Total Personal Hours</td><td>0</td></tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>Grand Total</th>
+          <th>30</th>
+        </tr>
+      </tfoot>
+    </table>
+    
+    <div class="tsSubmitConfirmMsg">
+      <i class="glyphicon glyphicon-ok"></i>
+      Click OK to submit, or click Cancel to return to the time report without submitting.
+    </div>
+
+    </div>
+    <div class="panel-footer">
+      <div class="row">
+        <div class="col-sm-12">
+            <div class="pull-right btn-group">
+              <button class="btn highlight" ng-click="links.Home()">
+                <i class="glyphicon glyphicon-ok-sign"></i><span> Ok</span>
+              </button>
+              <button class="btn btn-primary" ng-click="links.TimesheetEntry()">
+                <i class="glyphicon glyphicon-ban-circle"></i><span> Cancel</span>
+              </button>
+            </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

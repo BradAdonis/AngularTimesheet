@@ -1,0 +1,61 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+
+    <div class="col-sm-12">
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon">Project</div>
+          <select class="form-control" name="Description">
+            <option value="{{v.code}}" ng-repeat="v in projects|orderBy:'name'">{{v.name}} - {{v.code}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon">Activity</div>
+          <select class="form-control" name="Description">
+            <option value="{{n.code}}" ng-repeat="n in projectActivities|orderBy:'name'">{{n.name}} - {{n.code}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon">Hours</div>
+          <input type="text" class="form-control" id="txtMon" placeholder="7.5"/>
+          <div class="input-group-addon" data-toggle="modal" data-target="#hoursList">
+            <i class="glyphicon glyphicon-list"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-sm-12">
+      <div class="form-group">
+        <input type="radio" id="r11" name="cc1" checked="true" class="greenRadio" />
+        <label for="r11">
+          <span></span> Billable
+        </label>
+        <input type="radio" id="r12" name="cc1" class="greenRadio" />
+        <label for="r12">
+          <span></span> Internal
+        </label>
+        <input type="radio" id="r13" name="cc1" class="greenRadio" />
+        <label for="r13">
+          <span></span> Nonbillable
+        </label>
+      </div>
+    </div>
+    <div class="col-sm-12">
+      <div class="pull-right btn-group">
+        <button class="btn btn-success" ng-click="addProjectHours($index)">
+          <i class="glyphicon glyphicon-ok-sign"></i><span> Ok</span>
+        </button>
+        <button class="btn btn-primary" ng-click="delProjectHours($index)">
+          <i class="glyphicon glyphicon-ban-circle"></i><span> Cancel</span>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>
+<br/>

@@ -1,0 +1,236 @@
+<div>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header"  ng-click="links.Home()">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand"  ng-click="links.Home()">
+          <img alt="Brand" style="max-width:100%;max-height:100%" src="http://www.search.asic.gov.au/Lodgement/asic_logo.gif" /> ASIC Timesheet
+        </a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a ng-click="links.Home()">Home</a></li>
+          <li><a ng-click="links.viewTimesheets()">View Timesheets</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a class="btn btn-default" title="Logout"  ng-click="links.Login()">
+              <i class="fa fa-sign-out"></i> Logout</a>
+          </li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-4 col-sm-12">
+        <uib-accordion close-others="false">
+          <uib-accordion-group is-open="AcOpenStatusFor.details" class="panel-primary">
+            <uib-accordion-heading>
+              <strong>Project (Support - MS Forms)</strong>
+              <span class="badge badge-danger">{{totalDetailHours()}}</span>
+              <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': AcOpenStatusFor.details, 'glyphicon-chevron-right': !AcOpenStatusFor.details}"></i>
+            </uib-accordion-heading>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon">Project</div>
+                    <input type="text" class="form-control" id="txtProject" placeholder="Support - MS Forms" />
+                    <div class="input-group-addon">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon">Activity</div>
+                    <input type="text" class="form-control" id="txtProject" placeholder="Support - Implementation" />
+                    <div class="input-group-addon">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <input type="radio" id="r1" name="cc" checked="true" class="greenRadio" />
+                  <label for="r1">
+                    <span></span> Billable
+                  </label>
+                  <input type="radio" id="r2" name="cc" class="greenRadio" />
+                  <label for="r2">
+                    <span></span> Internal
+                  </label>
+                  <input type="radio" id="r3" name="cc" class="greenRadio" />
+                  <label for="r3">
+                    <span></span> Nonbillable
+                  </label>
+                </div>
+                <div ng-repeat="d in projectHours">
+                  <div ng-if="d.itemType === 'primary'" ng-include="'tplProjDay.html'"></div>
+                  <div ng-if="d.itemType === 'secondary'" ng-include="'tplAdditionalProjDay.html'"></div>
+                  <div ng-if="d.itemType === 'editor'" ng-include="'tplDayEntry.html'"></div>
+                </div>
+              </div>
+            </div>
+          </uib-accordion-group>
+          <uib-accordion-group is-open="AcOpenStatusFor.personalHours" class="panel-primary">
+            <uib-accordion-heading>
+              <strong>Personal Hours</strong>
+              <span class="badge badge-danger">{{totalPersonalHours()}}</span>
+              <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': AcOpenStatusFor.personalHours, 'glyphicon-chevron-right': !AcOpenStatusFor.personalHours}"></i>
+            </uib-accordion-heading>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon">Description</div>
+                    <select class="form-control" name="Description" ng-model="personalHours.selectedDescription">
+                      <option value="Administration">Administration</option>
+                      <option value="ContractorHours">Contractor Hours</option>
+                      <option value="Leave">Leave (Annual, Public Holiday)</option>
+                      <option value="TimeInLieu">Time in Lieu</option>
+                      <option value="SickLeave">Sick Leave</option>
+                      <option value="Training">Training</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon">Day</div>
+                    <select class="form-control" name="Day" ng-model="personalHours.selectedDay">
+                      <option value="{{h.dayDisplay}}" ng-repeat="h in projectHours">{{h.dayDisplay}}</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <div class="input-group">
+                    <div class="input-group-addon">Hours</div>
+                    <select class="form-control" name="Hours" ng-options="o.id for o in hoursList track by o.id" ng-model="personalHours.selectedHours">
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <button class="btn btn-success pull-right" ng-click="addPersonalHours()">
+                  <i class="glyphicon glyphicon-plus"></i><span> Add</span>
+                </button>
+              </div>
+            </div>
+            <br/>
+
+            <div class="row">
+              <div class="col-sm-12">
+                <div ng-repeat="i in personalHours.items">
+                  <div ng-include="'tplPersonalDay.html'"></div>
+                </div>
+              </div>
+            </div>
+          </uib-accordion-group>
+          <uib-accordion-group is-open="AcOpenStatusFor.summary" class="panel-primary">
+            <uib-accordion-heading class="summaryHeading">
+              <strong>Summary</strong>
+              <i class="pull-right glyphicon" ng-class="{'glyphicon-chevron-down': AcOpenStatusFor.summary, 'glyphicon-chevron-right': !AcOpenStatusFor.summary}"></i>
+            </uib-accordion-heading>
+            <table id="user" class="table table-bordered table-striped" style="clear: both">
+              <tbody>
+                <tr>
+                  <td width="40%">Status</td>
+                  <td width="60%">
+                    <strong class="text-danger">Pending</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Period ending</td>
+                  <td>
+                    <strong class="text-success">18/10/2015</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Cost Centre</td>
+                  <td>
+                    <strong class="text-success">4077</strong>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Timesheet Approver</td>
+                  <td>
+                    <strong class="text-success">Stuart Reid</strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </uib-accordion-group>
+        </uib-accordion>
+      </div>
+      <br />
+      <br />
+    </div>
+  </div>
+
+  <div class="modal fade" id="hoursList">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only">Close</span>
+          </button>
+          <h4 class="modal-title">Select hours <span class="badge badge-danger">{{hoursListSelected}}</span></h4>
+        </div>
+        <div class="modal-body">
+          <span class="form-group" ng-repeat="n in hoursList">
+            <input type="radio" id="id{{$index}}" class="greenRadio" ng-value="{{n.id}}" name="rdoHours" ng-model="$parent.hoursListSelected"/>
+            <label for="id{{$index}}"><span></span> {{n.id}}</label>
+          </span>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Ok</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>
+  <!-- /.modal -->
+
+  <footer class="footer">
+    <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+          <div class="pull-left">
+            <small class="block text-muted">Total hours:</small>
+            <span class="badge badge-danger">{{totalHours()}}</span>
+            <br/>
+            <small class="block text-muted">W/E:</small>
+            <strong>15/09/2015</strong>
+          </div>
+          <div class="pull-right btn-group">
+            <button class="btn highlight" ng-click="links.ConfirmSubmission()">Submit</button>
+            <button class="btn btn-success">Save</button>
+            <button class="btn btn-primary">Cancel</button>
+          </div>
+        </div>
+      </nav>
+
+    </div>
+  </footer>
+</div>

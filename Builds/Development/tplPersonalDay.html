@@ -1,0 +1,11 @@
+<div class="form-group">
+  <div class="input-group">
+    <div class="input-group-addon fixedWidth">{{i.dayDisplay}}</div>
+    <div class="input-group-addon fixedWidthLg">{{i.description}}</div>
+    <input type="text" class="form-control" id="txtSun" ng-model="i.hours" />
+    <span class="input-group-btn">
+      <button class="btn btn-default btn-remove" type="button" ng-click="delPersonalHours($index)">
+        <i class="glyphicon glyphicon-remove"></i></button>
+    </span>
+  </div>
+</div>

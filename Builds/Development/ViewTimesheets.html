@@ -1,0 +1,93 @@
+<div>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header" ng-click="links.Home()">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ng-click="links.Home()">
+          <img alt="Brand" style="max-width:100%;max-height:100%" src="http://www.search.asic.gov.au/Lodgement/asic_logo.gif" /> ASIC Timesheet
+        </a>
+      </div>
+      <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a ng-click="links.Home()">Home</a></li>
+          <li><a ng-click="links.viewTimesheets()">View Timesheets</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a class="btn btn-default" title="Logout"  ng-click="links.Login()" >
+              <i class="fa fa-sign-out"></i> Logout</a>
+          </li>
+        </ul>
+      </div>
+      <!--/.nav-collapse -->
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-md-offset-4 col-sm-12">
+        <table class="footable table table-stripped toggle-arrow-tiny footable-loaded default breakpoint" data-page-size="8">
+          <thead>
+            <tr>
+              <th data-toggle="true" class="footable-visible footable-sortable footable-first-column">Period Ending<span class="footable-sort-indicator"></span></th>
+              <th class="footable-visible footable-sortable">Status<span class="footable-sort-indicator"></span></th>
+              <th class="footable-visible footable-sortable">Version<span class="footable-sort-indicator"></span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="footable-even" style="display: table-row;">
+              <td class="footable-visible footable-first-column"><span class="footable-toggle"></span><a ng-click="links.TimesheetEntry()">25/10/2015</a></td>
+              <td class="footable-visible">Approved</td>
+              <td class="footable-visible">Original</td>
+            </tr>
+            <tr class="footable-even" style="display: table-row;">
+              <td class="footable-visible footable-first-column"><span class="footable-toggle"></span><a ng-click="links.TimesheetEntry()">18/10/2015</a></td>
+              <td class="footable-visible">Approved</td>
+              <td class="footable-visible">Partial</td>
+            </tr>
+
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="5" class="footable-visible">
+                <ul class="pagination pull-right">
+                  <li class="footable-page-arrow disabled"><a data-page="first" href="#first">«</a></li>
+                  <li class="footable-page-arrow disabled"><a data-page="prev" href="#prev">‹</a></li>
+                  <li class="footable-page active"><a data-page="0" href="#">1</a></li>
+                  <li class="footable-page"><a data-page="1" href="#">2</a></li>
+                  <li class="footable-page-arrow"><a data-page="next" href="#next">›</a></li>
+                  <li class="footable-page-arrow"><a data-page="last" href="#last">»</a></li>
+                </ul>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <br />
+      <br />
+    </div>
+  </div>
+
+  <!--<footer class="footer">
+    <div class="container">
+      <nav class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container">
+          <div class="pull-left">
+            <small class="block text-muted">Total hours:</small>
+            <span class="badge badge-danger">{{totalHours()}}</span>
+          </div>
+          <div class="pull-right btn-group">
+            <button class="btn highlight">Submit</button>
+            <button class="btn btn-success">Add Project</button>
+            <button class="btn btn-primary">Save</button>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </footer>-->
+</div>

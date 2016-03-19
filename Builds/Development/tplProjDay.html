@@ -1,0 +1,14 @@
+<div class="form-group">
+  <div class="input-group">
+    <div class="input-group-addon fixedWidth dayHighlight" uib-tooltip="Click to set default value (7.5)" tooltip-placement="right" ng-click="d.hours=7.5">{{d.dayDisplay}}</div>
+    <input type="text" class="form-control" id="txtMon" placeholder="hours" ng-model="d.hours" />
+    <div class="input-group-addon" data-toggle="modal" data-target="#hoursList">
+      <i class="glyphicon glyphicon-list"></i>
+    </div>
+    <span class="input-group-btn" >
+      <button class="btn btn-success" type="button" ng-click="editProjectHours($index+1)" uib-tooltip="Click to add other project hours" tooltip-placement="left">
+        <i class="glyphicon glyphicon-plus"></i>
+      </button>
+    </span>
+  </div>
+</div>

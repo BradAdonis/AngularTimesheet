@@ -1,0 +1,103 @@
+/* Styles go here */
+
+body {
+  padding-top: 55px; /*To stop fixed navbar from hiding content */
+  background: #f1f3f6;
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+
+.asic-logo{
+    width: 450px;
+    height: 200px;
+}
+
+.asic-logo-blue {
+    left: 0;
+    width:40px;
+    height:40px;
+    background: url(http://www.financemagnates.com/forex/wp-content/uploads/sites/8/2015/05/ASIC-LOGO.jpg) -410px -10px;
+    background-size : 400% 190%;
+}
+
+.rounded-x {
+  border-radius: 50% !important;
+}
+
+.icon-custom {
+  margin-bottom: 5px;
+  text-align: center;
+  display: inline-block;
+}
+
+.greenRadio {
+  display: none;
+}
+
+.greenRadio + label span,
+.greenRadio + label span {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  background: url(http://webapplayers.com/homer_admin-v1.8/angular/styles/img/green.png) -142px top no-repeat;
+  cursor: pointer;
+}
+
+.greenRadio:checked + label span {
+  background: url(http://webapplayers.com/homer_admin-v1.8/angular/styles/img/green.png) -168px top no-repeat;
+}
+
+.fixedWidth {
+  width: 75px!important;
+}
+
+.fixedWidthLg {
+  width: 120px!important;
+}
+
+.badge-danger{
+  background-color:red;
+}
+
+.btn.highlight {
+  background: #f54f21;
+  color: #fff;
+}
+
+.btn-remove, .btn-remove:focus, .btn-remove:hover{
+  background-color: #eee;
+  color:red;
+}
+
+.dayEntry{
+  background: #D264C4;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.panelHeader{
+  font-size: 16px;
+}
+
+.tsSubmitConfirmMsg > i{
+  font-size: 20px;
+  color:green;
+}
+
+.dayHighlight:hover, .dayHighlight:hover a{
+    color:#fff;
+    background-color:#5cb85c;
+    border-color:#4cae4c;
+}
+.dayHighlight a:hover{
+    color:#fff !important;
+    text-decoration: none !important;
+}

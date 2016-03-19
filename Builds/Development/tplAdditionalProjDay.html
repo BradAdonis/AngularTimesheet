@@ -1,0 +1,20 @@
+<div class="form-group">
+  <small class="text-muted">Support - MS Forums | Support - Implementation | Billable</small>
+  <div class="input-group">
+    <div class="input-group-addon fixedWidth dayHighlight" uib-tooltip="Click to set default value (7.5)" tooltip-placement="right" ng-click="d.hours=7.5">{{d.dayDisplay}}</div>
+    <input type="text" class="form-control" id="txtMon" placeholder="hours" ng-model="d.hours" />
+    <div class="input-group-addon">
+      <i class="glyphicon glyphicon-pencil"></i>
+    </div>
+    <span class="input-group-btn">
+      <button class="btn btn-default btn-remove" type="button" ng-click="delProjectHours($index)" uib-tooltip="Remove this entry." tooltip-placement="left">
+        <i class="glyphicon glyphicon-remove"></i>
+      </button>
+    </span>
+  </div>
+</div>
+
+<!-- 
+<div class="input-group-addon fixedWidth">{{d.dayDisplay}}</div>
+    <input type="text" class="form-control" id="txtMon" placeholder="7.5" ng-model="d.hours" />
+-->
